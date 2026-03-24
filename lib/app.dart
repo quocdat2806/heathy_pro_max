@@ -5,6 +5,8 @@ import 'package:healthy_fitness_pro/core/navigation/index.dart';
 import 'package:healthy_fitness_pro/core/config/app_config.dart';
 import 'package:healthy_fitness_pro/core/themes/app_typography.dart';
 import 'package:healthy_fitness_pro/core/utils/index.dart';
+import 'package:healthy_fitness_pro/core/di/injection.dart' as di;
+import 'package:healthy_fitness_pro/shared/repositories/food_repository.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -20,11 +22,15 @@ class _AppState extends State<App> {
   void initState() {
     super.initState();
     _router = AppRouter().router;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      di.sl<FoodRepository>().seedFoodsIfNeeded();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      ensureScreenSize: true,
       designSize: const Size(375, 812),
       builder: (context, child) => GestureDetector(
         onTap: () => KeyboardUtils.hideKeyboard(context),

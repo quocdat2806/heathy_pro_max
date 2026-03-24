@@ -5,15 +5,9 @@ import 'package:healthy_fitness_pro/shared/widgets/index.dart';
 
 import '../widgets/body_in_fat.dart';
 
-class CurrentBodyInFatScreen extends StatefulWidget {
+class CurrentBodyInFatScreen extends StatelessWidget {
   const CurrentBodyInFatScreen({super.key});
 
-  @override
-  State<CurrentBodyInFatScreen> createState() => _CurrentBodyInFatScreenState();
-}
-
-class _CurrentBodyInFatScreenState extends State<CurrentBodyInFatScreen>
-    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final currentBodyFat = context.select(

@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_fitness_pro/core/constants/index.dart';
+import 'package:healthy_fitness_pro/core/di/injection.dart';
 import 'package:healthy_fitness_pro/core/enums/index.dart';
+import 'package:healthy_fitness_pro/feature/calendar/blocs/calendar_bloc.dart';
+import 'package:healthy_fitness_pro/feature/calendar/calendar_screen.dart';
+import 'package:healthy_fitness_pro/feature/home/blocs/home_bloc.dart';
 import 'package:healthy_fitness_pro/feature/home/home_screen.dart';
-import 'package:healthy_fitness_pro/feature/main/blocs/main_bloc.dart';
-import 'package:healthy_fitness_pro/feature/main/blocs/main_event.dart';
-import 'package:healthy_fitness_pro/feature/main/blocs/main_state.dart';
-import 'package:healthy_fitness_pro/feature/main/widgets/add_food_button.dart';
-
-import 'widgets/bottom_navigation_bar.dart';
+import 'package:healthy_fitness_pro/feature/main/index.dart';
+import 'package:healthy_fitness_pro/feature/profile/profile_screen.dart';
+import 'package:healthy_fitness_pro/feature/stats/blocs/stats_bloc.dart';
+import 'package:healthy_fitness_pro/feature/stats/blocs/stats_event.dart';
+import 'package:healthy_fitness_pro/feature/stats/stats_screen.dart';
+import 'package:healthy_fitness_pro/shared/repositories/meal_log_repository.dart';
+import 'package:healthy_fitness_pro/shared/repositories/user_preferences_repository.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -30,19 +35,39 @@ class _MainScreenState extends State<MainScreen> {
     Widget page;
     switch (index) {
       case 0:
-        page = _KeepAliveWrapper(child: HomeScreen());
+        page = BlocProvider(
+          create: (_) => HomeBloc(
+            sl<MealLogRepository>(),
+            sl<UserPreferencesRepository>(),
+          ),
+          child: const _KeepAliveWrapper(child: HomeScreen()),
+        );
         break;
+
       case 1:
-        page = const _KeepAliveWrapper(child: HomeScreen());
+        page = BlocProvider(
+          create: (_) => CalendarBloc(
+            sl<MealLogRepository>(),
+            sl<UserPreferencesRepository>(),
+          ),
+          child: const _KeepAliveWrapper(child: CalendarScreen()),
+        );
         break;
+
       case 2:
-        page = const _KeepAliveWrapper(child: HomeScreen());
+        page = BlocProvider(
+          create: (_) => StatsBloc(
+            sl<MealLogRepository>(),
+            sl<UserPreferencesRepository>(),
+          )..add(const LoadWeeklyStats()),
+          child: const _KeepAliveWrapper(child: WeeklyStatsScreen()),
+        );
         break;
       case 3:
-        page = const _KeepAliveWrapper(child: HomeScreen());
+        page = const _KeepAliveWrapper(child: ProfileScreen());
         break;
       default:
-        page = const SizedBox.shrink();
+        page = const ProfileScreen();
     }
 
     _pageCache[index] = page;
@@ -64,7 +89,6 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 _buildContent(currentIndex: currentIndex),
                 _buildBottomNavigationBar(currentIndex: currentIndex),
-                _buildAddTransactionButton(),
               ],
             ),
           ),
@@ -103,15 +127,6 @@ class _MainScreenState extends State<MainScreen> {
           context.read<MainBloc>().add(MainSwitchTab(i));
         },
       ),
-    );
-  }
-
-  Widget _buildAddTransactionButton() {
-    return const Positioned(
-      bottom: AppDimens.topAddTransactionButtonOffset,
-      left: 0,
-      right: 0,
-      child: Center(child: AddFoodButton()),
     );
   }
 }

@@ -33,6 +33,7 @@ class AppDimens {
   static const double largeContainerSize = 60.0;
   static const double extraLargeContainerSize = 80.0;
   static const double superExtraLargeContainerSize = 160.0;
+  static const double superSuperExtraLargeContainerSize = 180.0;
 
   static const double svgSizeDefault = 24.0;
   static const double svgSizeSmall = 16.0;

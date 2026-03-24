@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_fitness_pro/core/constants/index.dart';
 import 'package:healthy_fitness_pro/core/extensions/text_extension.dart';
+import 'package:healthy_fitness_pro/feature/setup_user_information/index.dart';
+import 'package:healthy_fitness_pro/shared/entities/index.dart';
 import 'package:healthy_fitness_pro/shared/widgets/index.dart';
 
 class ResultInfomationScreen extends StatelessWidget {
@@ -8,23 +11,30 @@ class ResultInfomationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final outputUserInfomation = context.select(
+      (SetupUserInformationBloc bloc) => bloc.state.outputUserInfomation,
+    );
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(AppDimens.defaultSpace),
       child: Column(
         spacing: AppDimens.defaultSpace,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildBMIResult(context),
-          _buildBodyCompositionResult(context),
-          _buildMetabolismResult(context),
-          _buildYourGoalResult(context),
-          _buildAdvice(context),
+          _buildBMIResult(context, outputUserInfomation),
+          _buildBodyCompositionResult(context, outputUserInfomation),
+          _buildMetabolismResult(context, outputUserInfomation),
+          _buildYourGoalResult(context, outputUserInfomation),
+          _buildAdvice(context, outputUserInfomation),
         ],
       ),
     );
   }
 
-  Widget _buildBMIResult(BuildContext context) {
+  Widget _buildBMIResult(
+    BuildContext context,
+    OutputUserInfomation outputUserInfomation,
+  ) {
     return SizedBox(
       width: double.infinity,
       child: AppCard(
@@ -33,15 +43,28 @@ class ResultInfomationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('📊 Chỉ số BMI', style: context.body),
-            Text("Kết luận : Béo phì", style: context.bodySmall),
-            Text("Chỉ số BMI : 30.0", style: context.bodySmall),
+            Text(
+              "Kết luận : ${outputUserInfomation.bmiCategory}",
+              style: context.bodySmall,
+            ),
+            Text(
+              "Chỉ số BMI : ${outputUserInfomation.bmi.toStringAsFixed(1)}",
+              style: context.bodySmall,
+            ),
+            Text(
+              "Chỉ số BMI Prime : ${outputUserInfomation.bmiPrime.toStringAsFixed(1)}",
+              style: context.bodySmall,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildBodyCompositionResult(BuildContext context) {
+  Widget _buildBodyCompositionResult(
+    BuildContext context,
+    OutputUserInfomation outputUserInfomation,
+  ) {
     return AppCard(
       child: Column(
         spacing: AppDimens.smallSpace,
@@ -50,7 +73,7 @@ class ResultInfomationScreen extends StatelessWidget {
           Text('🏋️Thành phần cơ thể', style: context.body),
           AppGrid(
             crossAxisCount: 2,
-            itemCount: 4,
+            itemCount: 7,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             mainAxisSpacing: AppDimens.defaultSpace,
@@ -58,10 +81,35 @@ class ResultInfomationScreen extends StatelessWidget {
             itemHeightFactor: 0.45,
             itemBuilder: (context, index) {
               final items = <({String label, String value})>[
-                (label: 'Khối lượng nạc', value: '3.2 kg'),
-                (label: 'Khối lượng mỡ', value: '0.8 kg'),
-                (label: 'Mỡ hiện tại', value: '20%'),
-                (label: 'Đánh giá', value: 'Trung bình'),
+                (
+                  label: 'Khối lượng xương',
+                  value: outputUserInfomation.boneMassKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Khối lượng nước',
+                  value: outputUserInfomation.waterMassKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Khối lượng nạc',
+                  value: outputUserInfomation.leanMassKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Khối lượng mỡ',
+                  value: outputUserInfomation.fatMassKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Mỡ hiện tại',
+                  value: outputUserInfomation.currentBodyFatPercent
+                      .toStringAsFixed(1),
+                ),
+                (
+                  label: 'Khối lượng cơ bắp',
+                  value: outputUserInfomation.muscleMassKg.toStringAsFixed(1),
+                ),
+                (
+                  label: ' Thể trạng mỡ',
+                  value: outputUserInfomation.bodyFatCategory,
+                ),
               ];
               final item = items[index];
               return _ResultTile(label: item.label, value: item.value);
@@ -72,7 +120,10 @@ class ResultInfomationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMetabolismResult(BuildContext context) {
+  Widget _buildMetabolismResult(
+    BuildContext context,
+    OutputUserInfomation outputUserInfomation,
+  ) {
     return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +132,7 @@ class ResultInfomationScreen extends StatelessWidget {
           Text('⚡Chuyển hóa', style: context.body),
           AppGrid(
             crossAxisCount: 2,
-            itemCount: 4,
+            itemCount: 7,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             mainAxisSpacing: AppDimens.defaultSpace,
@@ -89,10 +140,51 @@ class ResultInfomationScreen extends StatelessWidget {
             itemHeightFactor: 0.45,
             itemBuilder: (context, index) {
               final items = <({String label, String value, bool highlighted})>[
-                (label: 'BMR', value: '50 kcal', highlighted: false),
-                (label: 'TDEE', value: '69 kcal', highlighted: false),
-                (label: 'Mục tiêu/ngày', value: '69 kcal', highlighted: true),
-                (label: 'Protein khuyên', value: '8g', highlighted: false),
+                (
+                  label: 'BMR',
+                  value: outputUserInfomation.bmr.toStringAsFixed(0),
+                  highlighted: false,
+                ),
+                (
+                  label: 'TDEE',
+                  value: outputUserInfomation.tdeeModerate.toStringAsFixed(0),
+                  highlighted: false,
+                ),
+                (
+                  label: 'Mục tiêu/ngày(kcal)',
+                  value: outputUserInfomation.dailyCaloriesRecommended
+                      .toStringAsFixed(0),
+                  highlighted: true,
+                ),
+                (
+                  label: 'Protein/ngày(g)',
+                  value: outputUserInfomation.dailyProteinG.toStringAsFixed(0),
+                  highlighted: false,
+                ),
+                (
+                  label: 'Carbs/ngày(g)',
+                  value: outputUserInfomation.dailyCarbG.toStringAsFixed(0),
+                  highlighted: false,
+                ),
+                (
+                  label: 'Fat/ngày(g)',
+                  value: outputUserInfomation.dailyFatG.toStringAsFixed(0),
+                  highlighted: false,
+                ),
+                (
+                  label:
+                      outputUserInfomation.dailyCaloriesRecommended -
+                              outputUserInfomation.tdeeModerate <
+                          0
+                      ? 'Thâm hụt calo'
+                      : 'Thừa calo',
+                  value:
+                      (outputUserInfomation.dailyCaloriesRecommended -
+                              outputUserInfomation.tdeeModerate)
+                          .abs()
+                          .toStringAsFixed(0),
+                  highlighted: false,
+                ),
               ];
               final item = items[index];
               return _ResultTile(label: item.label, value: item.value);
@@ -103,7 +195,10 @@ class ResultInfomationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildYourGoalResult(BuildContext context) {
+  Widget _buildYourGoalResult(
+    BuildContext context,
+    OutputUserInfomation outputUserInfomation,
+  ) {
     return AppCard(
       child: Column(
         spacing: AppDimens.smallSpace,
@@ -120,10 +215,23 @@ class ResultInfomationScreen extends StatelessWidget {
             itemHeightFactor: 0.45,
             itemBuilder: (context, index) {
               final items = <({String label, String value})>[
-                (label: 'Cân nặng mục tiêu', value: '4 kg'),
-                (label: 'Mỡ mục tiêu', value: '21%'),
-                (label: 'Cân thay đổi', value: '0.0 kg'),
-                (label: 'Thời gian ước tính', value: 'Đã đạt!'),
+                (
+                  label: 'Cân nặng(kg)',
+                  value: outputUserInfomation.targetWeightKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Mỡ(%)',
+                  value: outputUserInfomation.targetBodyFatPercent
+                      .toStringAsFixed(1),
+                ),
+                (
+                  label: 'Cân thay đổi (kg)',
+                  value: outputUserInfomation.weightChangeKg.toStringAsFixed(1),
+                ),
+                (
+                  label: 'Uớc tính (tuần)',
+                  value: outputUserInfomation.estimatedWeeksToGoal.toString(),
+                ),
               ];
               final item = items[index];
               return _ResultTile(label: item.label, value: item.value);
@@ -134,7 +242,10 @@ class ResultInfomationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAdvice(BuildContext context) {
+  Widget _buildAdvice(
+    BuildContext context,
+    OutputUserInfomation outputUserInfomation,
+  ) {
     return Container(
       padding: const EdgeInsets.all(AppDimens.defaultSpace),
       decoration: BoxDecoration(
@@ -153,21 +264,9 @@ class ResultInfomationScreen extends StatelessWidget {
               color: AppColorConstant.green500,
             ),
           ),
-          Text(
-            '•Ăn đúng TDEE, duy trì lượng protein ổn định',
-            style: context.bodySmall,
-          ),
-          Text(
-            '•Tập luyện đều đặn để cải thiện thành phần cơ thể',
-            style: context.bodySmall,
-          ),
-          Text(
-            '•Theo dõi cân nặng hàng tuần để điều chỉnh kịp thời',
-            style: context.bodySmall,
-          ),
-          Text(
-            '•Theo dõi cân nặng hàng tuần để điều chỉnh kịp thời',
-            style: context.bodySmall,
+
+          ...outputUserInfomation.advices.map(
+            (e) => Text(e, style: context.bodySmall),
           ),
         ],
       ),

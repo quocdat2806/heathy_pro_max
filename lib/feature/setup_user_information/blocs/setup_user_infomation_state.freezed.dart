@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SetupUserInformationState {
 
- SetupUserInformationStep get step; Gender get gender; String get age; String get height; String get weight; double get currentBodyFat; double get targetBodyFat; String get targetWeight; bool get isSetupInformationCompleted;
+ SetupUserInformationStep get step; Gender get gender; String get age; String get height; String get weight; double get currentBodyFat; MovementTime get movementTime; DevelopmentSpeed get developmentSpeed; Goal get goal; double get targetBodyFat; String get targetWeight; bool get isSetupInformationCompleted;
 /// Create a copy of SetupUserInformationState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $SetupUserInformationStateCopyWith<SetupUserInformationState> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetupUserInformationState&&(identical(other.step, step) || other.step == step)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.height, height) || other.height == height)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.currentBodyFat, currentBodyFat) || other.currentBodyFat == currentBodyFat)&&(identical(other.targetBodyFat, targetBodyFat) || other.targetBodyFat == targetBodyFat)&&(identical(other.targetWeight, targetWeight) || other.targetWeight == targetWeight)&&(identical(other.isSetupInformationCompleted, isSetupInformationCompleted) || other.isSetupInformationCompleted == isSetupInformationCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetupUserInformationState&&(identical(other.step, step) || other.step == step)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.height, height) || other.height == height)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.currentBodyFat, currentBodyFat) || other.currentBodyFat == currentBodyFat)&&(identical(other.movementTime, movementTime) || other.movementTime == movementTime)&&(identical(other.developmentSpeed, developmentSpeed) || other.developmentSpeed == developmentSpeed)&&(identical(other.goal, goal) || other.goal == goal)&&(identical(other.targetBodyFat, targetBodyFat) || other.targetBodyFat == targetBodyFat)&&(identical(other.targetWeight, targetWeight) || other.targetWeight == targetWeight)&&(identical(other.isSetupInformationCompleted, isSetupInformationCompleted) || other.isSetupInformationCompleted == isSetupInformationCompleted));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,step,gender,age,height,weight,currentBodyFat,targetBodyFat,targetWeight,isSetupInformationCompleted);
+int get hashCode => Object.hash(runtimeType,step,gender,age,height,weight,currentBodyFat,movementTime,developmentSpeed,goal,targetBodyFat,targetWeight,isSetupInformationCompleted);
 
 @override
 String toString() {
-  return 'SetupUserInformationState(step: $step, gender: $gender, age: $age, height: $height, weight: $weight, currentBodyFat: $currentBodyFat, targetBodyFat: $targetBodyFat, targetWeight: $targetWeight, isSetupInformationCompleted: $isSetupInformationCompleted)';
+  return 'SetupUserInformationState(step: $step, gender: $gender, age: $age, height: $height, weight: $weight, currentBodyFat: $currentBodyFat, movementTime: $movementTime, developmentSpeed: $developmentSpeed, goal: $goal, targetBodyFat: $targetBodyFat, targetWeight: $targetWeight, isSetupInformationCompleted: $isSetupInformationCompleted)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $SetupUserInformationStateCopyWith<$Res>  {
   factory $SetupUserInformationStateCopyWith(SetupUserInformationState value, $Res Function(SetupUserInformationState) _then) = _$SetupUserInformationStateCopyWithImpl;
 @useResult
 $Res call({
- SetupUserInformationStep step, Gender gender, String age, String height, String weight, double currentBodyFat, double targetBodyFat, String targetWeight, bool isSetupInformationCompleted
+ SetupUserInformationStep step, Gender gender, String age, String height, String weight, double currentBodyFat, MovementTime movementTime, DevelopmentSpeed developmentSpeed, Goal goal, double targetBodyFat, String targetWeight, bool isSetupInformationCompleted
 });
 
 
@@ -62,7 +62,7 @@ class _$SetupUserInformationStateCopyWithImpl<$Res>
 
 /// Create a copy of SetupUserInformationState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? step = null,Object? gender = null,Object? age = null,Object? height = null,Object? weight = null,Object? currentBodyFat = null,Object? targetBodyFat = null,Object? targetWeight = null,Object? isSetupInformationCompleted = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? step = null,Object? gender = null,Object? age = null,Object? height = null,Object? weight = null,Object? currentBodyFat = null,Object? movementTime = null,Object? developmentSpeed = null,Object? goal = null,Object? targetBodyFat = null,Object? targetWeight = null,Object? isSetupInformationCompleted = null,}) {
   return _then(_self.copyWith(
 step: null == step ? _self.step : step // ignore: cast_nullable_to_non_nullable
 as SetupUserInformationStep,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
@@ -70,7 +70,10 @@ as Gender,age: null == age ? _self.age : age // ignore: cast_nullable_to_non_nul
 as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as String,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as String,currentBodyFat: null == currentBodyFat ? _self.currentBodyFat : currentBodyFat // ignore: cast_nullable_to_non_nullable
-as double,targetBodyFat: null == targetBodyFat ? _self.targetBodyFat : targetBodyFat // ignore: cast_nullable_to_non_nullable
+as double,movementTime: null == movementTime ? _self.movementTime : movementTime // ignore: cast_nullable_to_non_nullable
+as MovementTime,developmentSpeed: null == developmentSpeed ? _self.developmentSpeed : developmentSpeed // ignore: cast_nullable_to_non_nullable
+as DevelopmentSpeed,goal: null == goal ? _self.goal : goal // ignore: cast_nullable_to_non_nullable
+as Goal,targetBodyFat: null == targetBodyFat ? _self.targetBodyFat : targetBodyFat // ignore: cast_nullable_to_non_nullable
 as double,targetWeight: null == targetWeight ? _self.targetWeight : targetWeight // ignore: cast_nullable_to_non_nullable
 as String,isSetupInformationCompleted: null == isSetupInformationCompleted ? _self.isSetupInformationCompleted : isSetupInformationCompleted // ignore: cast_nullable_to_non_nullable
 as bool,
@@ -158,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  MovementTime movementTime,  DevelopmentSpeed developmentSpeed,  Goal goal,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SetupUserInformationState() when $default != null:
-return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
+return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.movementTime,_that.developmentSpeed,_that.goal,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
   return orElse();
 
 }
@@ -179,10 +182,10 @@ return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  MovementTime movementTime,  DevelopmentSpeed developmentSpeed,  Goal goal,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)  $default,) {final _that = this;
 switch (_that) {
 case _SetupUserInformationState():
-return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
+return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.movementTime,_that.developmentSpeed,_that.goal,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +202,10 @@ return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( SetupUserInformationStep step,  Gender gender,  String age,  String height,  String weight,  double currentBodyFat,  MovementTime movementTime,  DevelopmentSpeed developmentSpeed,  Goal goal,  double targetBodyFat,  String targetWeight,  bool isSetupInformationCompleted)?  $default,) {final _that = this;
 switch (_that) {
 case _SetupUserInformationState() when $default != null:
-return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
+return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_that.currentBodyFat,_that.movementTime,_that.developmentSpeed,_that.goal,_that.targetBodyFat,_that.targetWeight,_that.isSetupInformationCompleted);case _:
   return null;
 
 }
@@ -214,7 +217,7 @@ return $default(_that.step,_that.gender,_that.age,_that.height,_that.weight,_tha
 
 
 class _SetupUserInformationState extends SetupUserInformationState {
-  const _SetupUserInformationState({this.step = SetupUserInformationStep.setupGenderAndAge, this.gender = Gender.male, this.age = '', this.height = '', this.weight = '', this.currentBodyFat = 20, this.targetBodyFat = 15, this.targetWeight = '', this.isSetupInformationCompleted = false}): super._();
+  const _SetupUserInformationState({this.step = SetupUserInformationStep.setupGenderAndAge, this.gender = Gender.male, this.age = '', this.height = '', this.weight = '', this.currentBodyFat = 20, this.movementTime = MovementTime.medium, this.developmentSpeed = DevelopmentSpeed.medium, this.goal = Goal.loseWeight, this.targetBodyFat = 15, this.targetWeight = '', this.isSetupInformationCompleted = false}): super._();
   
 
 @override@JsonKey() final  SetupUserInformationStep step;
@@ -223,6 +226,9 @@ class _SetupUserInformationState extends SetupUserInformationState {
 @override@JsonKey() final  String height;
 @override@JsonKey() final  String weight;
 @override@JsonKey() final  double currentBodyFat;
+@override@JsonKey() final  MovementTime movementTime;
+@override@JsonKey() final  DevelopmentSpeed developmentSpeed;
+@override@JsonKey() final  Goal goal;
 @override@JsonKey() final  double targetBodyFat;
 @override@JsonKey() final  String targetWeight;
 @override@JsonKey() final  bool isSetupInformationCompleted;
@@ -237,16 +243,16 @@ _$SetupUserInformationStateCopyWith<_SetupUserInformationState> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SetupUserInformationState&&(identical(other.step, step) || other.step == step)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.height, height) || other.height == height)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.currentBodyFat, currentBodyFat) || other.currentBodyFat == currentBodyFat)&&(identical(other.targetBodyFat, targetBodyFat) || other.targetBodyFat == targetBodyFat)&&(identical(other.targetWeight, targetWeight) || other.targetWeight == targetWeight)&&(identical(other.isSetupInformationCompleted, isSetupInformationCompleted) || other.isSetupInformationCompleted == isSetupInformationCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SetupUserInformationState&&(identical(other.step, step) || other.step == step)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.age, age) || other.age == age)&&(identical(other.height, height) || other.height == height)&&(identical(other.weight, weight) || other.weight == weight)&&(identical(other.currentBodyFat, currentBodyFat) || other.currentBodyFat == currentBodyFat)&&(identical(other.movementTime, movementTime) || other.movementTime == movementTime)&&(identical(other.developmentSpeed, developmentSpeed) || other.developmentSpeed == developmentSpeed)&&(identical(other.goal, goal) || other.goal == goal)&&(identical(other.targetBodyFat, targetBodyFat) || other.targetBodyFat == targetBodyFat)&&(identical(other.targetWeight, targetWeight) || other.targetWeight == targetWeight)&&(identical(other.isSetupInformationCompleted, isSetupInformationCompleted) || other.isSetupInformationCompleted == isSetupInformationCompleted));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,step,gender,age,height,weight,currentBodyFat,targetBodyFat,targetWeight,isSetupInformationCompleted);
+int get hashCode => Object.hash(runtimeType,step,gender,age,height,weight,currentBodyFat,movementTime,developmentSpeed,goal,targetBodyFat,targetWeight,isSetupInformationCompleted);
 
 @override
 String toString() {
-  return 'SetupUserInformationState(step: $step, gender: $gender, age: $age, height: $height, weight: $weight, currentBodyFat: $currentBodyFat, targetBodyFat: $targetBodyFat, targetWeight: $targetWeight, isSetupInformationCompleted: $isSetupInformationCompleted)';
+  return 'SetupUserInformationState(step: $step, gender: $gender, age: $age, height: $height, weight: $weight, currentBodyFat: $currentBodyFat, movementTime: $movementTime, developmentSpeed: $developmentSpeed, goal: $goal, targetBodyFat: $targetBodyFat, targetWeight: $targetWeight, isSetupInformationCompleted: $isSetupInformationCompleted)';
 }
 
 
@@ -257,7 +263,7 @@ abstract mixin class _$SetupUserInformationStateCopyWith<$Res> implements $Setup
   factory _$SetupUserInformationStateCopyWith(_SetupUserInformationState value, $Res Function(_SetupUserInformationState) _then) = __$SetupUserInformationStateCopyWithImpl;
 @override @useResult
 $Res call({
- SetupUserInformationStep step, Gender gender, String age, String height, String weight, double currentBodyFat, double targetBodyFat, String targetWeight, bool isSetupInformationCompleted
+ SetupUserInformationStep step, Gender gender, String age, String height, String weight, double currentBodyFat, MovementTime movementTime, DevelopmentSpeed developmentSpeed, Goal goal, double targetBodyFat, String targetWeight, bool isSetupInformationCompleted
 });
 
 
@@ -274,7 +280,7 @@ class __$SetupUserInformationStateCopyWithImpl<$Res>
 
 /// Create a copy of SetupUserInformationState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? step = null,Object? gender = null,Object? age = null,Object? height = null,Object? weight = null,Object? currentBodyFat = null,Object? targetBodyFat = null,Object? targetWeight = null,Object? isSetupInformationCompleted = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? step = null,Object? gender = null,Object? age = null,Object? height = null,Object? weight = null,Object? currentBodyFat = null,Object? movementTime = null,Object? developmentSpeed = null,Object? goal = null,Object? targetBodyFat = null,Object? targetWeight = null,Object? isSetupInformationCompleted = null,}) {
   return _then(_SetupUserInformationState(
 step: null == step ? _self.step : step // ignore: cast_nullable_to_non_nullable
 as SetupUserInformationStep,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
@@ -282,7 +288,10 @@ as Gender,age: null == age ? _self.age : age // ignore: cast_nullable_to_non_nul
 as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as String,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as String,currentBodyFat: null == currentBodyFat ? _self.currentBodyFat : currentBodyFat // ignore: cast_nullable_to_non_nullable
-as double,targetBodyFat: null == targetBodyFat ? _self.targetBodyFat : targetBodyFat // ignore: cast_nullable_to_non_nullable
+as double,movementTime: null == movementTime ? _self.movementTime : movementTime // ignore: cast_nullable_to_non_nullable
+as MovementTime,developmentSpeed: null == developmentSpeed ? _self.developmentSpeed : developmentSpeed // ignore: cast_nullable_to_non_nullable
+as DevelopmentSpeed,goal: null == goal ? _self.goal : goal // ignore: cast_nullable_to_non_nullable
+as Goal,targetBodyFat: null == targetBodyFat ? _self.targetBodyFat : targetBodyFat // ignore: cast_nullable_to_non_nullable
 as double,targetWeight: null == targetWeight ? _self.targetWeight : targetWeight // ignore: cast_nullable_to_non_nullable
 as String,isSetupInformationCompleted: null == isSetupInformationCompleted ? _self.isSetupInformationCompleted : isSetupInformationCompleted // ignore: cast_nullable_to_non_nullable
 as bool,
