@@ -56,27 +56,9 @@ class BodyInFat extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              '5%',
-              style: context.bodySmall.copyWith(
-                color: AppColorConstant.green800,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Text(
-              levelText,
-              style: context.bodySmall.copyWith(
-                color: AppColorConstant.green800,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Text(
-              '50%',
-              style: context.bodySmall.copyWith(
-                color: AppColorConstant.green800,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text('5%', style: context.bodySmall),
+            Text(levelText, style: context.bodySmall),
+            Text('50%', style: context.bodySmall),
           ],
         ),
       ],

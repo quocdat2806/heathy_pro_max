@@ -21,11 +21,17 @@ class SetupUserInformationScreen extends StatefulWidget {
 class _SetupUserInformationScreenChildState
     extends State<SetupUserInformationScreen> {
   final PageController _pageController = PageController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _targetWeightController = TextEditingController();
+
   int totalSteps = SetupUserInformationStep.values.length;
 
   void _onStepChanged(int stepIndex, bool isCompleted) {
     if (isCompleted) {
-      AppNavigator(context: context).push(AppRoutePaths.main);
+      // go() thay vì push() để xóa hết stack, user không back lại được setup
+      AppNavigator(context: context).go(AppRoutePaths.main);
       return;
     }
     _pageController.animateToPage(
@@ -38,6 +44,10 @@ class _SetupUserInformationScreenChildState
   @override
   void dispose() {
     _pageController.dispose();
+    _ageController.dispose();
+    _heightController.dispose();
+    _weightController.dispose();
+    _targetWeightController.dispose();
     super.dispose();
   }
 
@@ -121,28 +131,36 @@ class _SetupUserInformationScreenChildState
     return PageView(
       controller: _pageController,
       physics: const NeverScrollableScrollPhysics(),
-      children: const [
-        SetupGenderAndAgeScreen(),
-        SetupHeightAndWeightScreen(),
+      children: [
+        SetupGenderAndAgeScreen(ageController: _ageController),
+        SetupHeightAndWeightScreen(
+          heightController: _heightController,
+          weightController: _weightController,
+        ),
         CurrentBodyInFatScreen(),
+        MovementTimeScreen(),
         YourGoalScreen(),
-        TargetBodyInFatScreen(),
+        TargetBodyInFatScreen(targetBodyFatController: _targetWeightController),
+        DevelopmentSpeedScreen(),
         ResultInfomationScreen(),
       ],
     );
   }
 
   Widget _buildNextButton(bool isDisabled) {
-    return AppButton(
-      onPressed: () => context.read<SetupUserInformationBloc>().add(
-        const SetupUserInformationEvent.nextStep(),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppDimens.defaultSpace),
+      child: AppButton(
+        onPressed: () => context.read<SetupUserInformationBloc>().add(
+          const SetupUserInformationEvent.nextStep(),
+        ),
+        width: double.infinity,
+        borderRadius: AppDimens.largeBorderRadius,
+        text: 'Tiếp theo',
+        fontWeight: FontWeight.w700,
+        fontSize: 14.sp,
+        disabled: isDisabled,
       ),
-      width: double.infinity,
-      borderRadius: AppDimens.largeBorderRadius,
-      text: 'Tiếp theo',
-      fontWeight: FontWeight.w700,
-      fontSize: 13.sp,
-      disabled: isDisabled,
     );
   }
 }

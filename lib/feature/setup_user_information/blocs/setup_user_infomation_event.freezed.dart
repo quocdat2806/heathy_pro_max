@@ -55,7 +55,7 @@ extension SetupUserInformationEventPatterns on SetupUserInformationEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( NextStep value)?  nextStep,TResult Function( PreviousStep value)?  previousStep,TResult Function( SetGender value)?  setGender,TResult Function( SetAge value)?  setAge,TResult Function( SetHeight value)?  setHeight,TResult Function( SetWeight value)?  setWeight,TResult Function( SetCurrentBodyFat value)?  setCurrentBodyFat,TResult Function( SetTargetBodyFat value)?  setTargetBodyFat,TResult Function( SetTargetWeight value)?  setTargetWeight,TResult Function( SetSetupInformationCompleted value)?  setSetupInformationCompleted,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( NextStep value)?  nextStep,TResult Function( PreviousStep value)?  previousStep,TResult Function( SetGender value)?  setGender,TResult Function( SetAge value)?  setAge,TResult Function( SetHeight value)?  setHeight,TResult Function( SetWeight value)?  setWeight,TResult Function( SetCurrentBodyFat value)?  setCurrentBodyFat,TResult Function( SetMovementTime value)?  setMovementTime,TResult Function( SetGoal value)?  setGoal,TResult Function( SetDevelopmentSpeed value)?  setDevelopmentSpeed,TResult Function( SetTargetBodyFat value)?  setTargetBodyFat,TResult Function( SetTargetWeight value)?  setTargetWeight,TResult Function( SetSetupInformationCompleted value)?  setSetupInformationCompleted,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case NextStep() when nextStep != null:
@@ -65,7 +65,10 @@ return setGender(_that);case SetAge() when setAge != null:
 return setAge(_that);case SetHeight() when setHeight != null:
 return setHeight(_that);case SetWeight() when setWeight != null:
 return setWeight(_that);case SetCurrentBodyFat() when setCurrentBodyFat != null:
-return setCurrentBodyFat(_that);case SetTargetBodyFat() when setTargetBodyFat != null:
+return setCurrentBodyFat(_that);case SetMovementTime() when setMovementTime != null:
+return setMovementTime(_that);case SetGoal() when setGoal != null:
+return setGoal(_that);case SetDevelopmentSpeed() when setDevelopmentSpeed != null:
+return setDevelopmentSpeed(_that);case SetTargetBodyFat() when setTargetBodyFat != null:
 return setTargetBodyFat(_that);case SetTargetWeight() when setTargetWeight != null:
 return setTargetWeight(_that);case SetSetupInformationCompleted() when setSetupInformationCompleted != null:
 return setSetupInformationCompleted(_that);case _:
@@ -86,7 +89,7 @@ return setSetupInformationCompleted(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( NextStep value)  nextStep,required TResult Function( PreviousStep value)  previousStep,required TResult Function( SetGender value)  setGender,required TResult Function( SetAge value)  setAge,required TResult Function( SetHeight value)  setHeight,required TResult Function( SetWeight value)  setWeight,required TResult Function( SetCurrentBodyFat value)  setCurrentBodyFat,required TResult Function( SetTargetBodyFat value)  setTargetBodyFat,required TResult Function( SetTargetWeight value)  setTargetWeight,required TResult Function( SetSetupInformationCompleted value)  setSetupInformationCompleted,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( NextStep value)  nextStep,required TResult Function( PreviousStep value)  previousStep,required TResult Function( SetGender value)  setGender,required TResult Function( SetAge value)  setAge,required TResult Function( SetHeight value)  setHeight,required TResult Function( SetWeight value)  setWeight,required TResult Function( SetCurrentBodyFat value)  setCurrentBodyFat,required TResult Function( SetMovementTime value)  setMovementTime,required TResult Function( SetGoal value)  setGoal,required TResult Function( SetDevelopmentSpeed value)  setDevelopmentSpeed,required TResult Function( SetTargetBodyFat value)  setTargetBodyFat,required TResult Function( SetTargetWeight value)  setTargetWeight,required TResult Function( SetSetupInformationCompleted value)  setSetupInformationCompleted,}){
 final _that = this;
 switch (_that) {
 case NextStep():
@@ -96,7 +99,10 @@ return setGender(_that);case SetAge():
 return setAge(_that);case SetHeight():
 return setHeight(_that);case SetWeight():
 return setWeight(_that);case SetCurrentBodyFat():
-return setCurrentBodyFat(_that);case SetTargetBodyFat():
+return setCurrentBodyFat(_that);case SetMovementTime():
+return setMovementTime(_that);case SetGoal():
+return setGoal(_that);case SetDevelopmentSpeed():
+return setDevelopmentSpeed(_that);case SetTargetBodyFat():
 return setTargetBodyFat(_that);case SetTargetWeight():
 return setTargetWeight(_that);case SetSetupInformationCompleted():
 return setSetupInformationCompleted(_that);case _:
@@ -116,7 +122,7 @@ return setSetupInformationCompleted(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( NextStep value)?  nextStep,TResult? Function( PreviousStep value)?  previousStep,TResult? Function( SetGender value)?  setGender,TResult? Function( SetAge value)?  setAge,TResult? Function( SetHeight value)?  setHeight,TResult? Function( SetWeight value)?  setWeight,TResult? Function( SetCurrentBodyFat value)?  setCurrentBodyFat,TResult? Function( SetTargetBodyFat value)?  setTargetBodyFat,TResult? Function( SetTargetWeight value)?  setTargetWeight,TResult? Function( SetSetupInformationCompleted value)?  setSetupInformationCompleted,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( NextStep value)?  nextStep,TResult? Function( PreviousStep value)?  previousStep,TResult? Function( SetGender value)?  setGender,TResult? Function( SetAge value)?  setAge,TResult? Function( SetHeight value)?  setHeight,TResult? Function( SetWeight value)?  setWeight,TResult? Function( SetCurrentBodyFat value)?  setCurrentBodyFat,TResult? Function( SetMovementTime value)?  setMovementTime,TResult? Function( SetGoal value)?  setGoal,TResult? Function( SetDevelopmentSpeed value)?  setDevelopmentSpeed,TResult? Function( SetTargetBodyFat value)?  setTargetBodyFat,TResult? Function( SetTargetWeight value)?  setTargetWeight,TResult? Function( SetSetupInformationCompleted value)?  setSetupInformationCompleted,}){
 final _that = this;
 switch (_that) {
 case NextStep() when nextStep != null:
@@ -126,7 +132,10 @@ return setGender(_that);case SetAge() when setAge != null:
 return setAge(_that);case SetHeight() when setHeight != null:
 return setHeight(_that);case SetWeight() when setWeight != null:
 return setWeight(_that);case SetCurrentBodyFat() when setCurrentBodyFat != null:
-return setCurrentBodyFat(_that);case SetTargetBodyFat() when setTargetBodyFat != null:
+return setCurrentBodyFat(_that);case SetMovementTime() when setMovementTime != null:
+return setMovementTime(_that);case SetGoal() when setGoal != null:
+return setGoal(_that);case SetDevelopmentSpeed() when setDevelopmentSpeed != null:
+return setDevelopmentSpeed(_that);case SetTargetBodyFat() when setTargetBodyFat != null:
 return setTargetBodyFat(_that);case SetTargetWeight() when setTargetWeight != null:
 return setTargetWeight(_that);case SetSetupInformationCompleted() when setSetupInformationCompleted != null:
 return setSetupInformationCompleted(_that);case _:
@@ -146,7 +155,7 @@ return setSetupInformationCompleted(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  nextStep,TResult Function()?  previousStep,TResult Function( Gender gender)?  setGender,TResult Function( String age)?  setAge,TResult Function( String height)?  setHeight,TResult Function( String weight)?  setWeight,TResult Function( double currentBodyFat)?  setCurrentBodyFat,TResult Function( double targetBodyFat)?  setTargetBodyFat,TResult Function( String targetWeight)?  setTargetWeight,TResult Function( bool isSetupInformationCompleted)?  setSetupInformationCompleted,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  nextStep,TResult Function()?  previousStep,TResult Function( Gender gender)?  setGender,TResult Function( String age)?  setAge,TResult Function( String height)?  setHeight,TResult Function( String weight)?  setWeight,TResult Function( double currentBodyFat)?  setCurrentBodyFat,TResult Function( MovementTime movementTime)?  setMovementTime,TResult Function( Goal goal)?  setGoal,TResult Function( DevelopmentSpeed developmentSpeed)?  setDevelopmentSpeed,TResult Function( double targetBodyFat)?  setTargetBodyFat,TResult Function( String targetWeight)?  setTargetWeight,TResult Function( bool isSetupInformationCompleted)?  setSetupInformationCompleted,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case NextStep() when nextStep != null:
 return nextStep();case PreviousStep() when previousStep != null:
@@ -155,7 +164,10 @@ return setGender(_that.gender);case SetAge() when setAge != null:
 return setAge(_that.age);case SetHeight() when setHeight != null:
 return setHeight(_that.height);case SetWeight() when setWeight != null:
 return setWeight(_that.weight);case SetCurrentBodyFat() when setCurrentBodyFat != null:
-return setCurrentBodyFat(_that.currentBodyFat);case SetTargetBodyFat() when setTargetBodyFat != null:
+return setCurrentBodyFat(_that.currentBodyFat);case SetMovementTime() when setMovementTime != null:
+return setMovementTime(_that.movementTime);case SetGoal() when setGoal != null:
+return setGoal(_that.goal);case SetDevelopmentSpeed() when setDevelopmentSpeed != null:
+return setDevelopmentSpeed(_that.developmentSpeed);case SetTargetBodyFat() when setTargetBodyFat != null:
 return setTargetBodyFat(_that.targetBodyFat);case SetTargetWeight() when setTargetWeight != null:
 return setTargetWeight(_that.targetWeight);case SetSetupInformationCompleted() when setSetupInformationCompleted != null:
 return setSetupInformationCompleted(_that.isSetupInformationCompleted);case _:
@@ -176,7 +188,7 @@ return setSetupInformationCompleted(_that.isSetupInformationCompleted);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  nextStep,required TResult Function()  previousStep,required TResult Function( Gender gender)  setGender,required TResult Function( String age)  setAge,required TResult Function( String height)  setHeight,required TResult Function( String weight)  setWeight,required TResult Function( double currentBodyFat)  setCurrentBodyFat,required TResult Function( double targetBodyFat)  setTargetBodyFat,required TResult Function( String targetWeight)  setTargetWeight,required TResult Function( bool isSetupInformationCompleted)  setSetupInformationCompleted,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  nextStep,required TResult Function()  previousStep,required TResult Function( Gender gender)  setGender,required TResult Function( String age)  setAge,required TResult Function( String height)  setHeight,required TResult Function( String weight)  setWeight,required TResult Function( double currentBodyFat)  setCurrentBodyFat,required TResult Function( MovementTime movementTime)  setMovementTime,required TResult Function( Goal goal)  setGoal,required TResult Function( DevelopmentSpeed developmentSpeed)  setDevelopmentSpeed,required TResult Function( double targetBodyFat)  setTargetBodyFat,required TResult Function( String targetWeight)  setTargetWeight,required TResult Function( bool isSetupInformationCompleted)  setSetupInformationCompleted,}) {final _that = this;
 switch (_that) {
 case NextStep():
 return nextStep();case PreviousStep():
@@ -185,7 +197,10 @@ return setGender(_that.gender);case SetAge():
 return setAge(_that.age);case SetHeight():
 return setHeight(_that.height);case SetWeight():
 return setWeight(_that.weight);case SetCurrentBodyFat():
-return setCurrentBodyFat(_that.currentBodyFat);case SetTargetBodyFat():
+return setCurrentBodyFat(_that.currentBodyFat);case SetMovementTime():
+return setMovementTime(_that.movementTime);case SetGoal():
+return setGoal(_that.goal);case SetDevelopmentSpeed():
+return setDevelopmentSpeed(_that.developmentSpeed);case SetTargetBodyFat():
 return setTargetBodyFat(_that.targetBodyFat);case SetTargetWeight():
 return setTargetWeight(_that.targetWeight);case SetSetupInformationCompleted():
 return setSetupInformationCompleted(_that.isSetupInformationCompleted);case _:
@@ -205,7 +220,7 @@ return setSetupInformationCompleted(_that.isSetupInformationCompleted);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  nextStep,TResult? Function()?  previousStep,TResult? Function( Gender gender)?  setGender,TResult? Function( String age)?  setAge,TResult? Function( String height)?  setHeight,TResult? Function( String weight)?  setWeight,TResult? Function( double currentBodyFat)?  setCurrentBodyFat,TResult? Function( double targetBodyFat)?  setTargetBodyFat,TResult? Function( String targetWeight)?  setTargetWeight,TResult? Function( bool isSetupInformationCompleted)?  setSetupInformationCompleted,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  nextStep,TResult? Function()?  previousStep,TResult? Function( Gender gender)?  setGender,TResult? Function( String age)?  setAge,TResult? Function( String height)?  setHeight,TResult? Function( String weight)?  setWeight,TResult? Function( double currentBodyFat)?  setCurrentBodyFat,TResult? Function( MovementTime movementTime)?  setMovementTime,TResult? Function( Goal goal)?  setGoal,TResult? Function( DevelopmentSpeed developmentSpeed)?  setDevelopmentSpeed,TResult? Function( double targetBodyFat)?  setTargetBodyFat,TResult? Function( String targetWeight)?  setTargetWeight,TResult? Function( bool isSetupInformationCompleted)?  setSetupInformationCompleted,}) {final _that = this;
 switch (_that) {
 case NextStep() when nextStep != null:
 return nextStep();case PreviousStep() when previousStep != null:
@@ -214,7 +229,10 @@ return setGender(_that.gender);case SetAge() when setAge != null:
 return setAge(_that.age);case SetHeight() when setHeight != null:
 return setHeight(_that.height);case SetWeight() when setWeight != null:
 return setWeight(_that.weight);case SetCurrentBodyFat() when setCurrentBodyFat != null:
-return setCurrentBodyFat(_that.currentBodyFat);case SetTargetBodyFat() when setTargetBodyFat != null:
+return setCurrentBodyFat(_that.currentBodyFat);case SetMovementTime() when setMovementTime != null:
+return setMovementTime(_that.movementTime);case SetGoal() when setGoal != null:
+return setGoal(_that.goal);case SetDevelopmentSpeed() when setDevelopmentSpeed != null:
+return setDevelopmentSpeed(_that.developmentSpeed);case SetTargetBodyFat() when setTargetBodyFat != null:
 return setTargetBodyFat(_that.targetBodyFat);case SetTargetWeight() when setTargetWeight != null:
 return setTargetWeight(_that.targetWeight);case SetSetupInformationCompleted() when setSetupInformationCompleted != null:
 return setSetupInformationCompleted(_that.isSetupInformationCompleted);case _:
@@ -613,6 +631,204 @@ class _$SetCurrentBodyFatCopyWithImpl<$Res>
   return _then(SetCurrentBodyFat(
 null == currentBodyFat ? _self.currentBodyFat : currentBodyFat // ignore: cast_nullable_to_non_nullable
 as double,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SetMovementTime implements SetupUserInformationEvent {
+  const SetMovementTime(this.movementTime);
+  
+
+ final  MovementTime movementTime;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SetMovementTimeCopyWith<SetMovementTime> get copyWith => _$SetMovementTimeCopyWithImpl<SetMovementTime>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetMovementTime&&(identical(other.movementTime, movementTime) || other.movementTime == movementTime));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,movementTime);
+
+@override
+String toString() {
+  return 'SetupUserInformationEvent.setMovementTime(movementTime: $movementTime)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SetMovementTimeCopyWith<$Res> implements $SetupUserInformationEventCopyWith<$Res> {
+  factory $SetMovementTimeCopyWith(SetMovementTime value, $Res Function(SetMovementTime) _then) = _$SetMovementTimeCopyWithImpl;
+@useResult
+$Res call({
+ MovementTime movementTime
+});
+
+
+
+
+}
+/// @nodoc
+class _$SetMovementTimeCopyWithImpl<$Res>
+    implements $SetMovementTimeCopyWith<$Res> {
+  _$SetMovementTimeCopyWithImpl(this._self, this._then);
+
+  final SetMovementTime _self;
+  final $Res Function(SetMovementTime) _then;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? movementTime = null,}) {
+  return _then(SetMovementTime(
+null == movementTime ? _self.movementTime : movementTime // ignore: cast_nullable_to_non_nullable
+as MovementTime,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SetGoal implements SetupUserInformationEvent {
+  const SetGoal(this.goal);
+  
+
+ final  Goal goal;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SetGoalCopyWith<SetGoal> get copyWith => _$SetGoalCopyWithImpl<SetGoal>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetGoal&&(identical(other.goal, goal) || other.goal == goal));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,goal);
+
+@override
+String toString() {
+  return 'SetupUserInformationEvent.setGoal(goal: $goal)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SetGoalCopyWith<$Res> implements $SetupUserInformationEventCopyWith<$Res> {
+  factory $SetGoalCopyWith(SetGoal value, $Res Function(SetGoal) _then) = _$SetGoalCopyWithImpl;
+@useResult
+$Res call({
+ Goal goal
+});
+
+
+
+
+}
+/// @nodoc
+class _$SetGoalCopyWithImpl<$Res>
+    implements $SetGoalCopyWith<$Res> {
+  _$SetGoalCopyWithImpl(this._self, this._then);
+
+  final SetGoal _self;
+  final $Res Function(SetGoal) _then;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? goal = null,}) {
+  return _then(SetGoal(
+null == goal ? _self.goal : goal // ignore: cast_nullable_to_non_nullable
+as Goal,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SetDevelopmentSpeed implements SetupUserInformationEvent {
+  const SetDevelopmentSpeed(this.developmentSpeed);
+  
+
+ final  DevelopmentSpeed developmentSpeed;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SetDevelopmentSpeedCopyWith<SetDevelopmentSpeed> get copyWith => _$SetDevelopmentSpeedCopyWithImpl<SetDevelopmentSpeed>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SetDevelopmentSpeed&&(identical(other.developmentSpeed, developmentSpeed) || other.developmentSpeed == developmentSpeed));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,developmentSpeed);
+
+@override
+String toString() {
+  return 'SetupUserInformationEvent.setDevelopmentSpeed(developmentSpeed: $developmentSpeed)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SetDevelopmentSpeedCopyWith<$Res> implements $SetupUserInformationEventCopyWith<$Res> {
+  factory $SetDevelopmentSpeedCopyWith(SetDevelopmentSpeed value, $Res Function(SetDevelopmentSpeed) _then) = _$SetDevelopmentSpeedCopyWithImpl;
+@useResult
+$Res call({
+ DevelopmentSpeed developmentSpeed
+});
+
+
+
+
+}
+/// @nodoc
+class _$SetDevelopmentSpeedCopyWithImpl<$Res>
+    implements $SetDevelopmentSpeedCopyWith<$Res> {
+  _$SetDevelopmentSpeedCopyWithImpl(this._self, this._then);
+
+  final SetDevelopmentSpeed _self;
+  final $Res Function(SetDevelopmentSpeed) _then;
+
+/// Create a copy of SetupUserInformationEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? developmentSpeed = null,}) {
+  return _then(SetDevelopmentSpeed(
+null == developmentSpeed ? _self.developmentSpeed : developmentSpeed // ignore: cast_nullable_to_non_nullable
+as DevelopmentSpeed,
   ));
 }
 

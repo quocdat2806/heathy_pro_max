@@ -42,7 +42,6 @@ class InputCard extends StatelessWidget {
             filledColor: AppColorConstant.green50,
             controller: controller,
             hintText: hintText,
-
             keyboardType: keyboardType,
             onChanged: onChanged,
             inputFormatters: keyboardType == TextInputType.number
@@ -52,6 +51,7 @@ class InputCard extends StatelessWidget {
           Row(
             spacing: AppDimens.smallSpace,
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               suffixIcon != null ? suffixIcon! : SizedBox.shrink(),
               Text('$min - $max', style: context.bodySmall),

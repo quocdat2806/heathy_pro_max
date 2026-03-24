@@ -9,3 +9,5 @@ export 'screens/target_body_in_fat.dart';
 export 'screens/result_infomation.dart';
 export 'widgets/input_card.dart';
 export 'screens/your_goal.dart';
+export 'screens/movement_time.dart';
+export 'screens/development_speed.dart';

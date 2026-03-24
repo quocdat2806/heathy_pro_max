@@ -1,9 +1,8 @@
 enum MainTabs {
   home(0, 'Home'),
-  search(1, 'Search'),
+  calendar(1, 'Calendar'),
   stats(2, 'Stats'),
-  practice(3, 'Practice'),
-  profile(4, 'Profile');
+  profile(3, 'Profile');
 
   const MainTabs(this.tabIndex, this.label);
 
@@ -17,5 +16,5 @@ enum MainTabs {
     );
   }
 
-  static const int totalTypes = 5;
+  static const int totalTypes = 4;
 }

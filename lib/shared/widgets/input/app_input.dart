@@ -67,10 +67,9 @@ class AppTextField extends StatelessWidget {
       maxLines: maxLines,
       readOnly: readOnly,
       focusNode: focusNode,
-      style: style,
+      style: context.bodySmall,
       textAlign: textAlign,
       maxLength: maxLength,
-
       onChanged: onChanged,
       inputFormatters: inputFormatters,
       textInputAction: textInputAction,
@@ -89,7 +88,7 @@ class AppTextField extends StatelessWidget {
         errorBorder: _border(),
         focusedErrorBorder: _border(),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
+          horizontal: 20,
           vertical: 14,
         ),
       ),

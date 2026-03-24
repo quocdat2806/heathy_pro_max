@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:healthy_fitness_pro/core/constants/index.dart';
-import 'package:healthy_fitness_pro/core/extensions/text_extension.dart';
+import 'package:healthy_fitness_pro/core/extensions/index.dart';
 
 class MainNavigationItem extends StatelessWidget {
   final int index;

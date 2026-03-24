@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:healthy_fitness_pro/core/constants/index.dart';
 import 'package:healthy_fitness_pro/feature/setup_user_information/index.dart';
 
-class SetupHeightAndWeightScreen extends StatefulWidget {
-  const SetupHeightAndWeightScreen({super.key});
-
-  @override
-  SetupHeightAndWeightScreenState createState() =>
-      SetupHeightAndWeightScreenState();
-}
-
-class SetupHeightAndWeightScreenState
-    extends State<SetupHeightAndWeightScreen> {
-  final TextEditingController heightController = TextEditingController();
-  final TextEditingController weightController = TextEditingController();
-
-  @override
-  void dispose() {
-    heightController.dispose();
-    weightController.dispose();
-    super.dispose();
-  }
+class SetupHeightAndWeightScreen extends StatelessWidget {
+  final TextEditingController heightController;
+  final TextEditingController weightController;
+  const SetupHeightAndWeightScreen({
+    super.key,
+    required this.heightController,
+    required this.weightController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +21,13 @@ class SetupHeightAndWeightScreenState
         spacing: AppDimens.largeSpace,
         children: [
           InputCard(
+            suffixIcon: SvgPicture.asset(
+              AppImages.heightSvgs,
+              colorFilter: const ColorFilter.mode(
+                AppColorConstant.green800,
+                BlendMode.srcIn,
+              ),
+            ),
             value: context.read<SetupUserInformationBloc>().state.height,
             label: 'Chiều cao (cm)',
             controller: heightController,
@@ -45,6 +42,14 @@ class SetupHeightAndWeightScreenState
             },
           ),
           InputCard(
+            suffixIcon: SvgPicture.asset(
+              AppImages.weightSvgs,
+              colorFilter: const ColorFilter.mode(
+                AppColorConstant.green800,
+                BlendMode.srcIn,
+              ),
+            ),
+
             controller: weightController,
             hintText: 'Nhập cân nặng',
             label: 'Cân nặng (kg)',

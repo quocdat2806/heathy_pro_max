@@ -6,18 +6,20 @@ class AppCard extends StatelessWidget {
   final Widget child;
   final Border? border;
   final Color backgroundColor;
+  final EdgeInsets padding;
 
   const AppCard({
     super.key,
     required this.child,
     this.border,
     this.backgroundColor = AppColorConstant.white,
+    this.padding = const EdgeInsets.all(AppDimens.defaultSpace),
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppDimens.defaultSpace),
+      padding: padding,
       decoration: BoxDecoration(
         border: border,
         color: backgroundColor,

@@ -42,13 +42,7 @@ class _GenderOption extends StatelessWidget {
         child: Column(
           children: [
             Text(emoji, style: context.body),
-            Text(
-              label,
-              style: context.body.copyWith(
-                color: AppColorConstant.green900,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text(label, style: context.bodySmall),
           ],
         ),
       ),
@@ -127,22 +121,9 @@ class _AgeSection extends StatelessWidget {
   }
 }
 
-class SetupGenderAndAgeScreen extends StatefulWidget {
-  const SetupGenderAndAgeScreen({super.key});
-
-  @override
-  State<SetupGenderAndAgeScreen> createState() =>
-      _SetupGenderAndAgeScreenState();
-}
-
-class _SetupGenderAndAgeScreenState extends State<SetupGenderAndAgeScreen> {
-  final TextEditingController ageController = TextEditingController();
-
-  @override
-  void dispose() {
-    ageController.dispose();
-    super.dispose();
-  }
+class SetupGenderAndAgeScreen extends StatelessWidget {
+  final TextEditingController ageController;
+  const SetupGenderAndAgeScreen({super.key, required this.ageController});
 
   @override
   Widget build(BuildContext context) {
