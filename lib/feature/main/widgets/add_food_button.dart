@@ -7,7 +7,7 @@ class AddFoodButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _navigateToAddTransactionPage(context),
+      onTap: () {},
       behavior: HitTestBehavior.deferToChild,
       child: Container(
         decoration: const BoxDecoration(
@@ -20,12 +20,5 @@ class AddFoodButton extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _navigateToAddTransactionPage(BuildContext context) {
-    // AppNavigator(context: context).push(
-    //   RouterPath.transactionActions,
-    //   extra: TransactionActionsPageArgs(selectedDate: initialDate),
-    // );
   }
 }

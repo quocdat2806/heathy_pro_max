@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ide__getDiagnostics",
+      "Bash(dart run:*)",
+      "Bash(flutter analyze:*)",
+      "Bash(find /Users/vietlife/project/healthy_fitness_pro/android/app/src/main/res -name ic_launcher*)"
+    ]
+  }
+}

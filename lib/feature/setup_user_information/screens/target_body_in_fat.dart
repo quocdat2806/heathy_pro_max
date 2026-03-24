@@ -6,15 +6,12 @@ import 'package:healthy_fitness_pro/shared/widgets/index.dart';
 
 import '../widgets/body_in_fat.dart';
 
-class TargetBodyInFatScreen extends StatefulWidget {
-  const TargetBodyInFatScreen({super.key});
-
-  @override
-  State<TargetBodyInFatScreen> createState() => _TargetBodyInFatScreenState();
-}
-
-class _TargetBodyInFatScreenState extends State<TargetBodyInFatScreen> {
-  final TextEditingController targetBodyFatController = TextEditingController();
+class TargetBodyInFatScreen extends StatelessWidget {
+  final TextEditingController targetBodyFatController;
+  const TargetBodyInFatScreen({
+    super.key,
+    required this.targetBodyFatController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +19,7 @@ class _TargetBodyInFatScreenState extends State<TargetBodyInFatScreen> {
       (SetupUserInformationBloc bloc) => bloc.state.targetBodyFat,
     );
     final levelText = context.select(
-      (SetupUserInformationBloc bloc) => bloc.state.currentBodyFatLevel,
+      (SetupUserInformationBloc bloc) => bloc.state.targetBodyFatLevel,
     );
     final targetWeight = context.select(
       (SetupUserInformationBloc bloc) => bloc.state.targetWeight,

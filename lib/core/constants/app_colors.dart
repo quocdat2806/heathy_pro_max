@@ -41,4 +41,12 @@ class AppColorConstant {
 
   static const textPrimary = Color(0xFF262626);
   static const bottomNavigationColor = Color(0xFF272525);
+  static const primaryGreen = Color(0xFF199E47);
+  static const lightGreenBg = Color(0xFFE6F3EA);
+  // --- Định nghĩa màu sắc ---
+  static const greyText = Color(0xFF6B7280);
+  static const orange = Color(0xFFF5A524);
+  static const orangeBg = Color(0xFFFCECD5);
+  static const red = Color(0xFFF31260);
+  static const redBg = Color(0xFFFCD5E0);
 }
